@@ -1,5 +1,6 @@
-import './NavBar.css';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import './NavBar.scss';
+import CartWidget from './CartWidget';
+
 const NavBar = () => {
     return(
         <div className="navbar-primary">
@@ -10,9 +11,9 @@ const NavBar = () => {
                 <li><button>Sobre nosotros</button></li>
                 <li><button>Contacto</button></li>
             </ul>
-            <div className='cart-widget'>
-                <ShoppingCartIcon/>
-            </div>
+
+            <CartWidget/>
+
         </div>
     )
 }
