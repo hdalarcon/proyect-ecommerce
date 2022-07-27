@@ -6,8 +6,11 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 function App() {
   return (
     <div className="container">
-      <NavBar/>
-      <ItemListContainer title="Indumentaria Deportiva"/>
+        <NavBar/>
+        <div className='main-container'>
+          <ItemListContainer/>
+        </div>
+        
     </div>
   );
 }
