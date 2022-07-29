@@ -1,8 +1,9 @@
 .item{
     float: left;
+    width: calc(20% - 8px);
     margin: 15px;
     border: 10px;
-    box-shadow: 1px 1px 5px #e7e7e7;
+    box-shadow: 1px 1px 5px #f10b0b;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,9 +13,6 @@
 
     span{
         padding: 5px;
-    }
-    button{
-        width: 90%;
     }
     img {
         width: 80%;
@@ -27,4 +25,12 @@
     width: 90%;
     border-style: groove;
     margin: 10px;
+}
+
+.item-agregar-carrito{
+    width: 90%;
+    button{
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
