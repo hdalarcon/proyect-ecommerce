@@ -3,7 +3,7 @@ const products = [
         id:1,
         title:"Campera Converse",
         price:10000,
-pictureUrl:"/assets/converse-5167-405809-1-catalog-new.webp",
+        pictureUrl:"/assets/converse-5167-405809-1-catalog-new.webp",
         stock:10
     },
     {

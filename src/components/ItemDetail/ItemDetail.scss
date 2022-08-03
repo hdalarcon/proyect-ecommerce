@@ -1,0 +1,59 @@
+.item-detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    align-items: stretch;
+    font-size: 1.25rem;
+
+    span{
+        padding: 10px 10px 10px 0px;     
+    }
+
+    button{
+        width: 100%;
+        margin: 10px 0px 10px 0px;
+    }
+}
+
+.item-detail-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.item-info-marca{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.select-talle{
+    justify-content: center;
+    border: 1px solid rgba(25, 118, 210, 0.5);
+    color: #1976d2;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    .lable-select{
+        font-size: 5rem;
+    }
+}
+.lable-select{
+    font-size: 1rem;
+}
+.item-info-price{
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.item-info-cuotas{
+    color: #1976d2;
+}
+.div-item-info-cuotas{
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
