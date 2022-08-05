@@ -19,5 +19,5 @@ React JS
 Sass, Material UI
 
 <p aling="center">
-    <img width="460" src="./public/assets/Ecommerce_indumentaria.gif">
+    <img width="600" src="./public/assets/Ecommerce_indumentaria.gif">
 </p>
