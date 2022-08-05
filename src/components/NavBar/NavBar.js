@@ -3,17 +3,28 @@ import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
+    const links = [
+        {name:'Inicio', url:'/'},
+        {name:'Chombas', url:'/category/chombas'},
+        {name:'camperas', url:'/category/camperas'},
+        {name:'jeans', url:'/category/jeans'},
+        {name:'pantalones', url:'/category/pantalones'},
+        {name:'Sobre nosotros', url:'/nosotros'},
+        {name:'Contacto', url:'/contacto'},
+    ];
     return(
         <div className="navbar-primary">
             <Link to={"/"}><img src="/assets/logo.jpg" alt="logo"></img></Link>
             <ul>
-                <Link to={"/"}><li><button>Inicio</button></li></Link>
-                <Link to={"/category/chombas"}><li><button>Chombas</button></li></Link>
-                <Link to={"/category/camperas"}><li><button>Camperas</button></li></Link>
-                <Link to={"/category/jeans"}><li><button>Jeans</button></li></Link>
-                <Link to={"/category/pantalones"}><li><button>Pantalones</button></li></Link>
-                <Link to={"/nosotros"}><li><button>Sobre nosotros</button></li></Link>
-                <Link to={"/contacto"}><li><button>Contacto</button></li></Link>
+            
+                {links.map((link,i) =>{
+                    return(
+                        <li key={i}>
+                            <Link to={link.url}><button>{link.name}</button></Link>
+                        </li>
+                    )
+                })}
+
             </ul>
 
             <CartWidget/>
