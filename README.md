@@ -17,3 +17,7 @@ React JS
 # Dependencias extras
 
 Sass, Material UI
+
+<p aling="center">
+    <img width="460" src="./public/assets/Ecommerce_indumentaria.gif">
+</p>
