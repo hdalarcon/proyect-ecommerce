@@ -1,10 +1,11 @@
 import './Item.scss';
 import ItemCount from '../ItemCount/ItemCount';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom'
 
 const Item = ({data}) => {
 
-    const {title, price, pictureUrl, stock} = data
+    const {id,title, price, pictureUrl, stock} = data
 
     return(
         <div className='item'>
@@ -16,8 +17,16 @@ const Item = ({data}) => {
                 <ItemCount stockCount={stock}/>
             </div>
             <div className='item-agregar-carrito'>
-                <Button variant="outlined">Agregar al carrito</Button>
-            </div>           
+                <Link to={`/item/${id}`}>    
+                    <Button variant="outlined">Ver detalle</Button>
+                </Link>
+                <Link to={"/cart"}>
+                    <Button variant="outlined">Agregar al carrito</Button>
+                </Link>
+                
+            </div>
+
+
         </div>
     )
 }

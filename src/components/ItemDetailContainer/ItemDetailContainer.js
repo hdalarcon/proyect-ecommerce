@@ -1,32 +1,38 @@
 import { useEffect, useState } from "react"
-import ItemDetail from "../ItemDetail/ItemDetail";
-import productDetail from '../../utils/productDetail.mock'
 import './ItemDetailContainer.scss'
+import ItemDetail from "../ItemDetail/ItemDetail";
+import products from '../../utils/products.mock'
+import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
 
-    const [product, setProduct] =  useState([])
+    const [itemDetail, setItemDetail] = useState([])
 
-    const getProductDetail = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(productDetail)
-        },2000)
-    })
+    const {id} = useParams();
+    
+    const filterId = products.filter((product) => product.id === Number(id));
+   
+    const getItem = () => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(filterId[0]);
+            },2000)
+        })
 
     useEffect(() => {
-        getProductDetail
-            .then((res) => {
-                setProduct(res)
-            })
-            .catch((error) => {
-                console.log("Falló la llamada a products.")
-            })
-
+        const itemAwait = async () => {
+            try {
+                const res = await getItem();
+                setItemDetail(res);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        itemAwait();
     })
 
     return(
         <div className="container-item-detail">
-            <ItemDetail data={product}/>
+            <ItemDetail data={itemDetail}/>
         </div>
     )
 }
