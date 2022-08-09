@@ -1,6 +1,5 @@
 .item{
     float: left;
-    width: calc(20% - 8px);
     margin: 15px;
     border: 10px;
     box-shadow: 1px 1px 5px #f10b0b;
@@ -21,16 +20,20 @@
     
 }
 
-.item-contador{
-    width: 90%;
-    border-style: groove;
-    margin: 10px;
+.item-marca{
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .item-agregar-carrito{
     width: 90%;
     button{
-        width: 100%;
-        margin-bottom: 10px;
+        width: 90%;
+        margin-bottom: 10px;       
     }
+}
+
+.btn-detalle{
+    text-decoration: none;
 }
