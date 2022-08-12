@@ -1,25 +1,36 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './ItemCount.scss'
 import Button from '@mui/material/Button';
+import { CartContext } from '../../context/CartContext';
 
-const ItemCount = ({stockCount, quantitySelected}) => {
+const ItemCount = ({productData, quantitySelected}) => {
+
+    const { addItem } = useContext(CartContext)
 
     const [contador, setContador] = useState(1)
 
+    const [cantidadItem, setCantidadItem] = useState(1)
+
+    const {stock} = productData
+
     const addProduct = () =>{
-        if(contador < stockCount){
+        if(contador < stock){
             setContador(contador + 1) 
+            setCantidadItem(contador + 1)
         } 
     }
     const removeProduct = () =>{
         if(contador > 1){
             setContador(contador - 1)
+            setCantidadItem(contador - 1)
         } 
         
     }
 
-    const onAdd = () => {
-        quantitySelected(contador);
+    const onAdd = () => {  
+        productData.cantidad=cantidadItem
+        addItem(productData)
+        quantitySelected(contador)
     }
 
     return(
@@ -30,7 +41,7 @@ const ItemCount = ({stockCount, quantitySelected}) => {
                 <Button variant='te xt' color="success" onClick={addProduct}>+</Button>
             </div>
             <div className='item-agregar-carrito'>
-                <Button variant="contained" onClick={onAdd}>Agregar al carrito</Button>
+                <Button onClick={onAdd} variant="contained">Agregar al carrito</Button>
             </div>
             
         </>

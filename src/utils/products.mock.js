@@ -6,7 +6,8 @@ const products = [
         marca:"Converse",
         price:10000,
         pictureUrl:"/assets/converse-5167-405809-1-catalog-new.webp",
-        stock:10
+        stock:10,
+        cantidad:0
     },
     {
         id:2,
@@ -15,7 +16,8 @@ const products = [
         marca:"DC",
         price:9000,
         pictureUrl:"/assets/dc-shoes-8601-840518-1-catalog-new.webp",
-        stock:5
+        stock:5,
+        cantidad:0
     },
     {
         id:3,
@@ -24,7 +26,8 @@ const products = [
         marca:"Mezgo",
         price:7500,
         pictureUrl:"/assets/mezgo-4080-321294-1-catalog-new.webp",
-        stock:6
+        stock:6,
+        cantidad:0
     },
     {
         id:4,
@@ -33,7 +36,8 @@ const products = [
         marca:"Wemuel",
         price:8000,
         pictureUrl:"/assets/wemuel-3170-800405-1-catalog-new.webp",
-        stock:15
+        stock:15,
+        cantidad:0
     },
     {
         id:5,
@@ -42,7 +46,8 @@ const products = [
         marca:"Wemuel",
         price:8000,
         pictureUrl:"/assets/wemuel-3017-936105-1-catalog-new.webp",
-        stock:12
+        stock:12,
+        cantidad:0
     },
     {
         id:6,
@@ -51,7 +56,8 @@ const products = [
         marca:"Mistral",
         price:7490,
         pictureUrl:"/assets/mistral-3912-306538-1-catalog-new.webp",
-        stock:7
+        stock:7,
+        cantidad:0
     },
     {
         id:7,
@@ -60,7 +66,8 @@ const products = [
         marca:"Bravo",
         price:9485,
         pictureUrl:"/assets/bravo-2452-559745-1-catalog-new.webp",
-        stock:4
+        stock:4,
+        cantidad:0
     },
     {
         id:8,
@@ -69,7 +76,8 @@ const products = [
         marca:"Adidas",
         price:19500,
         pictureUrl:"/assets/adidas-5135-844159-1-catalog-new.webp",
-        stock:6
+        stock:6,
+        cantidad:0
     },
     {
         id:9,
@@ -78,7 +86,8 @@ const products = [
         marca:"Levis",
         price:11400,
         pictureUrl:"/assets/levis-8314-109849-1-catalog-new.webp",
-        stock:8
+        stock:8,
+        cantidad:0
     },
     {
         id:10,
@@ -87,7 +96,8 @@ const products = [
         marca:"Vinson",
         price:5900,
         pictureUrl:"/assets/vinson-9413-746964-1-catalog-new.webp",
-        stock:10
+        stock:10,
+        cantidad:0
     },
     {
         id:11,
@@ -96,7 +106,8 @@ const products = [
         marca:"Legacy",
         price:11990,
         pictureUrl:"/assets/legacy-0625-167498-1-catalog-new.webp",
-        stock:8
+        stock:8,
+        cantidad:0
     },
     {
         id:12,
@@ -105,7 +116,8 @@ const products = [
         marca:"Legacy",
         price:10990,
         pictureUrl:"/assets/legacy-0145-336288-1-catalog-new.webp",
-        stock:9
+        stock:9,
+        cantidad:0
     }
 ]
 

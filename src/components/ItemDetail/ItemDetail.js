@@ -37,8 +37,7 @@ const ItemDetail = ({data}) => {
                         </select>
                     </div>
                     <div className='item-info-count'>
-                        {console.log('quantitySelected', quantitySelected)}
-                        {quantitySelected > 0 ? <Link to={"/cart"} style={{textDecoration: 'none'}}><Button variant="contained" color='success'>Terminar compra</Button></Link> : <ItemCount stockCount={stock} quantitySelected={setQuantitySelected}/>}             
+                        {quantitySelected > 0 ? <Link to={"/cart"} style={{textDecoration: 'none'}}><Button variant="contained" color='success'>Terminar compra</Button></Link> : <ItemCount productData={data} quantitySelected={setQuantitySelected}/>}             
                     </div> 
                 </div>
             </div>
