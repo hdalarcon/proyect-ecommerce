@@ -5,6 +5,7 @@ import Menu from '@mui/material/Menu';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CartContext } from '../../context/CartContext';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
 
@@ -55,7 +56,10 @@ const CartWidget = () => {
                     </div>
                     )
                 })}
-                <Button variant="contained" onClick={() => clear()} className={"btn-delete-all"}>Borrar todo</Button>
+                {cartProducts.length!==0 ? <div className='cart-widget-buttons'>
+                    <Button variant="contained" onClick={() => clear()} className={"btn-delete-all"}>Borrar todo</Button>
+                    <Link to={"/cart"} style={{textDecoration: 'none'}}><Button variant="contained" color='success' className={"btn-cart"}>Ir al carrito</Button></Link>
+                </div> : <p style={{padding: '10px'}}>TU CARRITO ESTA VACIO</p> } 
             </Menu>
         </div>
     )

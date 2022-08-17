@@ -41,7 +41,17 @@ button.btn-delete-all {
     margin-bottom: 10px;
     margin-top: 10px;
     cursor: pointer;
-    font-size: 16px;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+}
+
+button.btn-cart{
+    margin-right: 10px;
+    float: right;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: pointer;
     text-transform: uppercase;
     padding: 5px 15px;
     transition: all 0.3s ease;

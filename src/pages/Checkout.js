@@ -1,9 +1,9 @@
+import Cart from "../components/Cart/Cart"
+
 const Checkout = () => {
     return(
         <div className="container" >
-            <section className='main-container'>
-                <h1>Pagina de Checkout</h1>
-            </section>
+            <Cart/>
         </div>
     )
 }
