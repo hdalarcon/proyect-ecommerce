@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import './ItemListContainer.scss'
-import products from '../../utils/products.mock'
 import ItemList from "../ItemList/ItemList"
 import { useParams } from 'react-router-dom'
+import { collection, query, where ,getDocs } from "firebase/firestore"
+import db from "../../firebaseConfig"
 
 const ItemListContainer = () => {
 
@@ -10,28 +11,38 @@ const ItemListContainer = () => {
 
     const [listProducts, setListProducts] =  useState([]);
 
-    const filterByCategory = products.filter((product) => product.category === category);
+    const getProducts = async () =>{
 
-    const getProducts = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if(category){
-                resolve(filterByCategory);
-            }else {
-                resolve(products)
-            }
-            },2000)
-    })
+        if(category){
+            const filterByCategory = query(collection(db, 'products'), where("category","==",category));
+            const productSnapshot = await getDocs(filterByCategory)
+            const productList = productSnapshot.docs.map( (doc)=> {
+                let product = doc.data();
+                product.id= doc.id;
+                return product;
+            })
+           
+            return productList;
+        }  else{
+            const productCollection = collection(db, 'products');  
+            const productSnapshot = await getDocs(productCollection)
+            const productList = productSnapshot.docs.map( (doc)=> {
+                let product = doc.data();
+                product.id= doc.id;
+                return product;
+            })
+           
+            return productList;
+        }        
+    }
 
     useEffect(() => {
-        getProducts
-            .then((res) => {
-                setListProducts(res)
+        getProducts()
+        .then((res) => {
+            setListProducts(res)
             })
-            .catch((error) => {
-                console.log("Falló la llamada a products.")
-            })
+    },[category])
 
-    })
     return(
         <div className="list-products">
             <ItemList dataProducts={listProducts}/>
