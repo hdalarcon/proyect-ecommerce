@@ -8,23 +8,24 @@ const CartProvider = ({children}) => {
     
     const [totalProducts, setTotalProducts] = useState(0)
 
+    const [totalPrice, setTotalPrice] = useState(0)
+
     const addItem = (product) => {
         let isInCart=cartProducts.find((c) => c.id === product.id);
 
         let cantProduct = product.cantidad;
         
         if(!isInCart){
-            setCartProducts (cartProducts => [...cartProducts,product])
             setTotalProducts(totalProducts + product.cantidad)
+            setTotalPrice(totalPrice + product.price * cantProduct)
+            return setCartProducts (cartProducts => [...cartProducts,product]) 
         }else{
-            console.log('isInCart ',isInCart.cantidad);
             isInCart.cantidad=isInCart.cantidad+cantProduct
-            console.log('isInCart 2 ',isInCart.cantidad);
 
             product.cantidad=isInCart.cantidad
 
-            console.log('product.cantidad',product.cantidad);
             setTotalProducts(totalProducts + cantProduct)
+            setTotalPrice(totalPrice + product.price * cantProduct)
         }
     }
 
@@ -36,6 +37,7 @@ const CartProvider = ({children}) => {
     const clear = () => {
         setCartProducts([])
         setTotalProducts(0)
+        setTotalPrice(0)
     }
 
     const data = {
@@ -44,7 +46,8 @@ const CartProvider = ({children}) => {
         addItem,
         removeItem,
         clear,
-        totalProducts
+        totalProducts,
+        totalPrice
     }
 
     return(
