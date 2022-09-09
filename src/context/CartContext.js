@@ -32,6 +32,7 @@ const CartProvider = ({children}) => {
     const removeItem = (product) => {
         setCartProducts(cartProducts.filter((cartProduct) => cartProduct.id !== product.id ))
         setTotalProducts(totalProducts - product.cantidad)
+        setTotalPrice(totalPrice-product.price*product.cantidad)
     }
 
     const clear = () => {

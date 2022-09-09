@@ -1,15 +1,30 @@
-import './ItemDetail.scss'
+import './ItemDetail.scss';
 import Button from '@mui/material/Button';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import ItemCount from '../ItemCount/ItemCount';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Select from 'react-select';
 
 const ItemDetail = ({data}) => {
-    const {title,marca,category,pictureUrl,price,stock} = data
+    const {title,marca,category,pictureUrl,price,stock,talle} = data
 
     const [quantitySelected, setQuantitySelected] = useState(0)
 
+    const [selectedTalles, setSelectedTalles] = useState(talle);
+
+    const talles = [
+        {label: 'S', value:'S'},
+        {label: 'M', value:'M'},
+        {label: 'L', value:'L'},
+        {label: 'XL', value:'XL'}
+    ]
+
+    const handleSelectChange = ( { value } ) => {
+        setSelectedTalles(value);      
+        data.talle = value;
+    }
+    
     return(
         <>
             <div className='item-detail'>
@@ -26,15 +41,13 @@ const ItemDetail = ({data}) => {
                         <span className='item-info-cuotas'>6 Cuotas sin interés.</span>
                     </div>
                     <span className='item-info-stock'>Stock: {stock}</span>
-                    <div className='item-talle'>
-                        <label className='lable-select'>Talle</label>
-                        <select className='select-talle'>
-                            <option value={0}>Seleccione un talle</option>
-                            <option value={'S'}>S</option>
-                            <option value={'M'}>M</option>
-                            <option value={'L'}>L</option>
-                            <option value={'XL'}>XL</option>
-                        </select>
+                    <div className='item-info-talle'>
+                        <label>Talle: {selectedTalles}</label>
+                        <Select className='select-talle'
+                            defaultValue={ { label:`${talles[0].label}`, value:`${talles[0].value}`} }
+                            options={talles}
+                            onChange= {handleSelectChange}
+                        />
                     </div>
                     <div className='item-info-count'>
                         {quantitySelected > 0 ? <Link to={"/cart"} style={{textDecoration: 'none'}}><Button variant="contained" color='success'>Terminar compra</Button></Link> : <ItemCount productData={data} quantitySelected={setQuantitySelected}/>}             

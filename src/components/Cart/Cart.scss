@@ -23,10 +23,16 @@
 }
 
 .checkout-product-details{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     width: 200px;
     padding: 10px;
 }
-
+.css-b62m3t-container{
+    width: 80px;
+}
 .checkout-total-product{
     border-left: 1px inset red;
 }
