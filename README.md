@@ -16,7 +16,7 @@ React JS
 
 # Dependencias extras
 
-Sass, Material UI
+    Sass, Material UI, firebase, react-router-dom.
 
 # Gif
 
