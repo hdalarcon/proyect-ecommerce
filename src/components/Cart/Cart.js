@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import Modal from '../Modal/Modal';
 import db from "../../firebaseConfig"
 import { collection, addDoc } from "firebase/firestore"
-import Select from 'react-select';
 import CircularProgress from '@mui/material/CircularProgress';
 
 const Cart = () => {
@@ -56,22 +55,6 @@ const Cart = () => {
         setOrderNumber(orderDoc.id)
     }   
 
-    const [selectedTalles, setSelectedTalles] = useState('');
-
-    const talles = [
-        {label: 'S', value:'S'},
-        {label: 'M', value:'M'},
-        {label: 'L', value:'L'},
-        {label: 'XL', value:'XL'}
-    ]
-
-
-
-    const handleSelectChange = ( { value } ) => {
-        setSelectedTalles(value); 
-    }
-
-
     return(
         <div className="items-checkout">
             <h1>Carrito de compras</h1>
@@ -86,16 +69,9 @@ const Cart = () => {
                         <p>cantidad: {product.cantidad}</p>
                     </div>
                     <div className='checkout-product-details'>
-                            <div>
-                            <label>Talle: {selectedTalles} </label>
-                            </div>
-                            <div>
-                                <Select 
-                                    defaultValue={{ label:`${product.talle}`, value:`${product.talle}`}}
-                                    options={talles}
-                                    onChange= {handleSelectChange}
-                                />
-                            </div>
+                        <div>
+                            <label>Talle: {product.talle} </label>
+                        </div>
                     </div>
                     <div className='checkout-total-product'>
                         <div className='checkout-product-price'>
@@ -114,16 +90,50 @@ const Cart = () => {
                                            {orderNumber ? 
                                             (     
                                                 <div>
-                                                    <h2>Su orden se genero correctamente</h2>
-                                                    <p>ID de compra : {orderNumber}</p>
+                                                    <Modal title="GRACIAS POR SU COMPRA!!!" close={() => success ? (setShowModal(false), clear()) :  setShowModal(false)}>
+                                                        <h2>Su orden se genero correctamente</h2>
+                                                        <p>ID de compra : {orderNumber}</p>
+                                                        
+                                                        <p>Detalle de productos:</p>
+                                                        {cartProducts.map((product) => {
+                                                            return(
+                                                                <div className='item-order-product' key={product.id}>
+                                                                    <img src={`${product.pictureUrl}`} alt="" />
+                                                                    <div className='item-order-details'>
+                                                                        <p>{product.title}</p>
+                                                                    </div>
+                                                                    <div className='item-order-details'>
+                                                                        <p>cantidad: {product.cantidad}</p>
+                                                                    </div>
+                                                                    <div className='item-order-details'>
+                                                                        <div>
+                                                                            <label>Talle: {product.talle} </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className='item-total-product'>
+                                                                        <div className='item-product-price'>
+                                                                            <p>Precio unitario: ${product.price}</p>
+                                                                        </div>
+                                                                        <div className='item-product-total-price'>
+                                                                            <p>Precio: ${product.priceTotal = product.price * product.cantidad}</p>
+                                                                        </div> 
+                                                                    </div> 
+                                                                </div> 
+                                                            )
+                                                        }
+                                                        )}
+
+                                                        <h2>Importe de la orden: ${totalPrice}</h2>
+                           
+                                                    </Modal>
                                                 </div>                       
                                             ) : <CircularProgress color="success" />}</>
                          : (
                             <form onSubmit={handleSubmitData}>
-                                <input type='text' name='name' placeholder='Ingrese el nombre' value={formData.name} onChange={handleChange}/>
-                                <input type='number' name='phone' placeholder='Ingrese el teléfono' value={formData.phone} onChange={handleChange}/>
-                                <input type='email' name='email' placeholder='Ingrese el mail' value={formData.email} onChange={handleChange}/>
-                                <input type='text' name='address' placeholder='Ingrese el domicilio' value={formData.address} onChange={handleChange}/>
+                                <input type='text' name='name' placeholder='Ingrese el nombre' value={formData.name} onChange={handleChange} required/>
+                                <input type='number' name='phone' placeholder='Ingrese el teléfono' value={formData.phone} onChange={handleChange} required/>
+                                <input type='email' name='email' placeholder='Ingrese el mail' value={formData.email} onChange={handleChange} required/>
+                                <input type='text' name='address' placeholder='Ingrese el domicilio' value={formData.address} onChange={handleChange} required/>
                                 <Button type='submit' variant='contained'>Finalizar compra</Button>
                             </form>)}
                         </Modal>

@@ -1,11 +1,11 @@
 import './Modal.scss'
-import CloseIcon from '@mui/icons-material/Close'
+import HighlightOffSharpIcon from '@mui/icons-material/HighlightOffSharp';
 
 const Modal = ({title, close, children}) => {
     return(
         <div className="modal">
             <h2>{title}</h2>
-            <CloseIcon onClick={() => close(false)}/>
+            <HighlightOffSharpIcon fontSize='large' color='error' onClick={() => close(false)}/>
             {children}
         </div>
     )

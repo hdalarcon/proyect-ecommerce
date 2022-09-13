@@ -7,6 +7,7 @@
     align-items: center;
     padding: 10px 20px;
 
+
     ul{
         display: flex;
         flex-grow: 1;
@@ -19,11 +20,14 @@
     }
 
     button{
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
         background: none;
-        height: 30px;
+        height: 40px;
         list-style: none;
         border-radius: 5px;
-        text-decoration: none;
+        color: black;
     }
     a{
         text-decoration: none;

@@ -23,8 +23,7 @@ const NavBar = () => {
                         return(
                             
                             <li key={i}>
-                                
-                                    <Link to={link.url}><Button>{link.name}</Button></Link>
+                                    <Link to={link.url}><Button variant='text'>{link.name}</Button></Link>
                             </li>
                             
                         )
