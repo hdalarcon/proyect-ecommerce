@@ -39,7 +39,7 @@ React JS
 
     2-Una vez dentro de la carpeta del proyecto instalar las dependencias utilizando el comando:
 
-        npm intall
+        npm install
 
     3-Cuando haya terminado la instalacion levantar el servidor local para correr el proyecto:
 
