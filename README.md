@@ -18,6 +18,22 @@ React JS
 
 Sass, Material UI
 
+# Gif
+
 <p aling="center">
     <img width="600" src="./public/assets/Ecommerce_indumentaria.gif">
 </p>
+
+# Instalación
+
+    1-Clonar el repositorio utilizando el comando:
+
+        git clone https://github.com/hdalarcon/proyect-ecommerce.git
+
+    2-Una vez dentro de la carpeta del proyecto instalar las dependencias utilizando el comando:
+
+        npm intall
+
+    3-Cuando haya terminado la instalacion levantar el servidor local para correr el proyecto:
+
+        npm start
